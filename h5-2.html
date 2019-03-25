@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web存储</title>
+</head>
+<style>
+    #kuang{
+            border: 2px solid #dadada;
+            height:200px;
+            width: 300px;
+        }
+    #color {
+        height: 20px;
+        background-color: grey;
+        margin-right: 10px;
+        margin-bottom:5px;
+        float: left;
+    }
+    .deldete {
+        position: absolute;
+        display: none;
+    }
+</style>
+
+<body>
+    <div id="kuang">
+    <input id="search" type="text" name="搜索" placeholder="请输入想查找的商品">
+    <input type="button" value="搜索" onclick="saveStorage('search');">
+
+    <br>
+    <p>最近搜索</p>
+
+    <div id="box">
+    </div>
+    <button id="delete" onclick="clearStorage('box')"><font color="white">x</font></button>
+    </div>
+    <script type="text/javascript">
+        var del = document.getElementById('delete');
+        function saveStorage(id) {
+            var data = document.getElementById(id).value;
+            var time = new Date().getTime();
+            localStorage.setItem(time, data);
+            loadStorage('box');
+            del.style.display = 'block';   
+        }
+
+
+        function loadStorage(id) {
+            var record = '<div id="box">';
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                var value = localStorage.getItem(key);
+                record += '<div id="color">' + value+'</div>';
+            }
+            record += '</div>';
+            var target = document.getElementById(id);
+            target.innerHTML = record;
+        }
+
+
+        function clearStorage() {
+            localStorage.clear();
+            loadStorage('box');
+            del.style.display = 'none';   
+        }
+    </script>
+</body>
+
+</html>
