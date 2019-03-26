@@ -1,73 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Web存储</title>
+    <title>h5第二次作业</title>
 </head>
 <style>
     #kuang{
-            border: 2px solid #dadada;
-            height:200px;
-            width: 300px;
-        }
-    #color {
+        border: 2px solid #dadada;
+        height:200px;
+        width: 300px;
+    }
+    #color{
+        float:left;
         height: 20px;
-        background-color: grey;
+        background-color: #dadada;
         margin-right: 10px;
         margin-bottom:5px;
-        float: left;
     }
-    .deldete {
+    .deldete{
         position: absolute;
         display: none;
     }
+    .kuang1{
+        line-height: 45px;
+        margin-left:5px;
+    }
 </style>
-
 <body>
     <div id="kuang">
-    <input id="search" type="text" name="搜索" placeholder="请输入想查找的商品">
-    <input type="button" value="搜索" onclick="saveStorage('search');">
-
-    <br>
+        <div class="kuang1">
+    <input id="search" type="text" name="搜索" placeholder="请输入想查找的商品" style="height:30px;">
+    <input type="button" value="搜索" style="height:30px;width:100px;" onclick="saveStorage('search');"></div>
     <p>最近搜索</p>
-
     <div id="box">
     </div>
     <button id="delete" onclick="clearStorage('box')"><font color="white">x</font></button>
     </div>
     <script type="text/javascript">
         var del = document.getElementById('delete');
-        function saveStorage(id) {
-            var data = document.getElementById(id).value;
-            var time = new Date().getTime();
-            localStorage.setItem(time, data);
+        function saveStorage(id){
+            var arr = document.getElementById(id).value;
+            var brr = new Date().getTime();
+            localStorage.setItem(brr, arr);
             loadStorage('box');
-            del.style.display = 'block';   
+            del.style.display = 'block';
+            alert("数据已保存。");   
         }
-
-
-        function loadStorage(id) {
+        function loadStorage(id){
             var record = '<div id="box">';
-            for (var i = 0; i < localStorage.length; i++) {
-                var key = localStorage.key(i);
-                var value = localStorage.getItem(key);
+            for (var i = 0; i < localStorage.length; i++){
+                var rng = localStorage.key(i);
+                var value = localStorage.getItem(rng);
                 record += '<div id="color">' + value+'</div>';
             }
             record += '</div>';
             var target = document.getElementById(id);
             target.innerHTML = record;
         }
-
-
-        function clearStorage() {
+        function clearStorage(){
             localStorage.clear();
             loadStorage('box');
-            del.style.display = 'none';   
+            del.style.display='none';   
         }
     </script>
 </body>
-
 </html>
