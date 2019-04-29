@@ -4,10 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>刮奖</title>
+    <title>刮图效果</title>
 </head>
 <body>
-    <div><img src="images/a.jpg" alt="" style="width:20%"></div>
+    <div><img src="刮奖作业/a.jpg" alt="" style="width:0%"></div>
     <canvas id="myCanvas"></canvas>
+    <script>
+        var image = new Image();
+        var isOpen = false;
+        var move,move1;
+        var myCanvas = document.getElementById("myCanvas");
+        var ctx = myCanvas.getContext('2d');
+        myCanvas.height = "300";
+        myCanvas.width = "450";
+        ctx.lineWidth = 50;
+        ctx.beginPath();
+        ctx.fillStyle = "#e2e2e2";
+        ctx.fillRect(0,0,400,400);
+        myCanvas.addEventListener("mousedown",function(i){
+            isOpen = true;
+            move = i.clientY - myCanvas.offsetLeft;
+            move1 = i.clientX - myCanvas.offsetTop;
+            ctx.moveTo(move,move1);
+        });
+        myCanvas.addEventListener("mousemove",function(i){
+            if(isOpen){
+                ctx.globalCompositeOperation = "destination-out";
+                ctx.stroke();
+                ctx.lineTo(i.clientX-myCanvas.offsetLeft,i.clientY-myCanvas.offsetTop);
+                ctx.stroke();
+                ctx.globalCompositeOperation = "destination-over";
+                image.src = "刮奖作业/a.jpg";
+                image.onload = function(){
+                    ctx.beginPath();
+                    ctx.drawImage(image,0,0,400,400);
+                }
+            }
+        });
+        myCanvas.addEventListener("mouseup",function(i){
+            isOpen = false;
+        });
+    </script>
 </body>
 </html>
