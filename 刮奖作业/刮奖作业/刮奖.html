@@ -7,7 +7,7 @@
     <title>刮图效果</title>
 </head>
 <body>
-    <div><img src="刮奖作业/a.jpg" alt="" style="width:0%"></div>
+    <div><img src="刮奖作业/刮奖作业/a.jpg" alt="" style="width:0%"></div>
     <canvas id="myCanvas"></canvas>
     <script>
         var image = new Image();
@@ -34,7 +34,7 @@
                 ctx.lineTo(i.clientX-myCanvas.offsetLeft,i.clientY-myCanvas.offsetTop);
                 ctx.stroke();
                 ctx.globalCompositeOperation = "destination-over";
-                image.src = "刮奖作业/a.jpg";
+                image.src = "刮奖作业/刮奖作业/a.jpg";
                 image.onload = function(){
                     ctx.beginPath();
                     ctx.drawImage(image,0,0,400,400);
