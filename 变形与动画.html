@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变形与动画作业</title>
+    <style>
+    #box{
+        width: 466px;
+        height: 435px;
+        border: 3px solid rgb(210, 210, 211);
+        overflow: hidden;
+        position: relative;
+    }
+    #img{
+        width:466px;
+        height: 305px;
+        background:url(hainan.jpeg);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 466px 305px;
+        transform: translateY(0);
+        filter: brightness(1);
+        z-index: -1;
+        position: absolute;
+        transition: background-size .3s ease-in-out,
+                    transform .3s ease-in-out,
+                    filter .3s ease-in-out; 
+    }
+    #box:hover #img{
+        background-size: 495px 305PX;
+        transform: translateY(-30px);
+        filter: brightness(0.6);
+        transition-property: all;
+        transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+    }
+    #box0{
+        float: left;
+        width: 370px;
+        height: 285px;
+        margin-top: 220px;
+        transition-property: margin-top;
+        transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+    }
+    #box:hover #box0{
+        margin-top: 100px;
+        transition-property: all;
+        transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+
+    }
+    #month{
+        width:46px;
+        height:46px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        border-radius: 23px;
+        background-color: rgb(103, 106, 255);
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    #month span{
+        display: block;
+        margin-top: 14px;
+        text-align: center;
+        line-height: 1px;
+    }
+    #pic{   
+        width:55px;
+        height:25px;
+        line-height:25px;
+        text-align:center;
+        background-color: rgb(103, 106, 255);
+        color: white;
+        font-size:12px;
+    }
+
+    #box1{
+        float: left;
+        padding-left:20px;
+        padding-right:20px;
+        width:426px;
+        height:260px;
+        background-color: white;
+    }
+
+    #box1 p:nth-child(1){
+        margin-top:25px;
+        margin-bottom:0px;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    #box1 p:nth-child(2){
+        margin-top:10px;
+        margin-bottom:0px;
+        font-size:21px;
+        color: rgb(103, 106, 255);
+    }
+
+    #box1 p:nth-child(3){
+        margin-top:0px;
+        line-height:25px;
+        color: white;
+        display:none;
+        transition: color.5s ease-in-out;
+    }
+    #box:hover #box1 p:nth-child(3){
+        display: inline;
+        color: gray;
+
+        transition: color.5s ease-in-out;
+    }
+
+    #kuang{
+        width:466px;
+        height:50px;
+        position:absolute;
+        bottom:0;
+        background-color: white;
+        color: #a0a0a0;
+        line-height:50px;
+        font-size:12px;
+    }
+    #kuang span:first-child{
+        margin-left:30px;
+        margin-right:25px;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="img"></div>
+        <div id="month">
+            <span>26</span>
+            <span>5月</span>
+        </div>
+        <div id="box0">
+            <div id="pic">照片</div>
+            <div id="box1">
+                <p>三亚凤凰岛</p>
+                <p style="color: rgb(103, 106, 255);">国家AAAAA级旅游景区</p>
+                <p style="font-size:20px;">
+                    凤凰岛主要包括七大项目，超星级酒店（包含
+                    酒店及国际会议中心）、国际养生度假中心、
+                    别墅商务会所、热带风情商业街、国际游艇会、
+                    奥运主题公园和凤凰岛国际邮轮港。凤凰岛的
+                    综合发展目标是媲美美国迈阿密的邮轮制度、
+                    海港之城，比肩迪拜的梦幻之岛。</p>
+            </div>
+        </div>
+        <div id="kuang">
+            <span>30分钟前</span>
+            <span>1w+评论</span>
+        </div>
+    </div>
+</body>
+</html>
