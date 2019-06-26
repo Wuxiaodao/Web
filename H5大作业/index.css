@@ -168,7 +168,7 @@ body{
 .button7{
     width:179px;
     height:52px;
-    margin-left:53px;
+    margin-left:21%;
     margin-top: 40px;
     line-height:50px;
     color:white;
@@ -180,7 +180,7 @@ body{
     width:232px;
     height:52px;
     float:left;
-    margin-left:40%;
+    margin-left:8%;
     margin-top: 15px;
     line-height:50px;
     border: 1px solid black;
@@ -189,7 +189,7 @@ body{
 }
 .button9{
     width:50%;
-    height:525px;
+    height:536px;
     margin-top:20px;
     line-height:50px;
     font-size:20px;
@@ -329,7 +329,7 @@ body{
     float:left;
 }
 .kuang5{
-    width:33.2%;
+    width:33.3%;
     height:89px;
     background: rgba(0, 0, 0, 0.596);
     color:white;
@@ -613,3 +613,4 @@ body{
         display: none;
     }
 }
+
